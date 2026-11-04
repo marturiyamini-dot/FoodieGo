@@ -1,4 +1,5 @@
 
+
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
@@ -12,9 +13,17 @@ app.use(express.json());
 
 // Import routes
 const restaurantRoutes = require("./routes/restaurantRoutes");
+const menuItemRoutes = require("./routes/menuItemRoutes");
+const authRoutes = require("./routes/authRoutes");
+const cartRoutes = require("./routes/cartRoutes");
+const orderRoutes = require("./routes/orderRoutes");
 
 // Register routes
 app.use("/api/restaurants", restaurantRoutes);
+app.use("/api/menu-items", menuItemRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Test route
 app.get("/health", (req, res) => {
